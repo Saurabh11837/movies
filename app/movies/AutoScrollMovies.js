@@ -61,13 +61,26 @@ export default function AutoScrollMovies() {
     setMovies((prev) => prev.filter((url) => url !== src));
   };
 
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen text-white text-xl">
+  //       Loading...
+  //     </div>
+  //   );
+  // }
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-white text-xl">
-        Loading...
+      <div className="mt-5 flex flex-wrap gap-2 md:gap-4 justify-center items-start">
+        {Array.from({ length: 14 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="w-20 h-30 bg-gray-800 rounded-lg animate-pulse mt-3"
+          ></div>
+        ))}
       </div>
     );
   }
+  
 
   return (
     <div className="bg-black  overflow-hidden w-full h-30">

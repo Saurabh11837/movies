@@ -55,13 +55,28 @@ export default function Navbar2() {
     setSearchResults(results);
   }, [query, movies]);
 
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen text-white text-xl">
+  //       Loading...
+  //     </div>
+  //   );
+  // }
+
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-white text-xl">
-        Loading...
+      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4">
+        {Array.from({ length: 15 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="w-full h-48 bg-gray-800 rounded-xl animate-pulse"
+          ></div>
+        ))}
       </div>
     );
   }
+  
+  
 
   // Total pages
   const totalPages = allPages.length;
